@@ -54,4 +54,9 @@ public class MovieController {
 		String msg = movieService.buyMovieTickets(amount,movie_name,user_name);
 		return new ResponseEntity<String>(msg,HttpStatus.OK);		
 	}
+	
+	@GetMapping("/getMovieDetails")
+	public List<Movie> getMovieDetails(){
+		return movieService.getAllMovies();
+	}
 }
