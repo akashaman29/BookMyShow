@@ -21,6 +21,6 @@ public class UserController {
 	public ResponseEntity<String> addingaddress(@RequestParam("User Name") String user_name,
 			@RequestBody Address address){
 		  String message = movieService.addingNewAddress(user_name,address);
-		return new ResponseEntity<String>("",HttpStatus.OK);
+		return new ResponseEntity<String>(message,HttpStatus.OK);
 	}
 }

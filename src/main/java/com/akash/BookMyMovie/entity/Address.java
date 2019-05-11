@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -21,7 +22,8 @@ public class Address {
 	private String city_name;
 	
 	@ManyToOne
-	private Integer user_id;
+	@JoinColumn
+	private Customer  customer;
 
 	public Integer getAddress_id() {
 		return address_id;
@@ -47,13 +49,15 @@ public class Address {
 		this.city_name = city_name;
 	}
 
-	public Integer getUser_id() {
-		return user_id;
+	public Customer getCustomer() {
+		return customer;
 	}
 
-	public void setUser_id(Integer user_id) {
-		this.user_id = user_id;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
+
+	
 	
 	
 }

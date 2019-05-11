@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
-import org.apache.tomcat.jni.Address;
+//import org.apache.tomcat.jni.Address;
 
 @Entity
 @Table(name="customer_details")
@@ -21,7 +21,7 @@ public class Customer {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer userId;
+	private Integer user_id;
 	
 	@NotEmpty
 	private String user_name;
@@ -34,7 +34,7 @@ public class Customer {
 	
 	private String customer_name;
 	
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Address> address;
 	
 	public Customer() {
@@ -49,12 +49,12 @@ public class Customer {
 	}
 	
 	
-	public int getUserId() {
-		return userId;
+	public int getUser_id() {
+		return user_id;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getUser_name() {

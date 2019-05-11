@@ -109,7 +109,7 @@ public class MovieServiceImpl implements MovieService {
         Customer customer = new Customer();
         customer.setCustomer_name(user_name);
         customer = customerRepository.getByUser_name(user_name);
-		address.setUser_id(customer.getUserId());
+        address.setCustomer(customer);
         addressRepository.save(address);
 		return "User "+user_name+ " with address "+address+ "has been saved successfully";
 	}
