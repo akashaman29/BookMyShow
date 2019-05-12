@@ -111,7 +111,7 @@ public class MovieServiceImpl implements MovieService {
         customer = customerRepository.getByUser_name(user_name);
         address.setCustomer(customer);
         addressRepository.save(address);
-		return "User "+user_name+" "+address.getCity_name()+ "has been saved successfully";
+		return "User "+user_name+" with city "+address.getCity_name()+ "has been saved successfully";
 	}
 
 }
