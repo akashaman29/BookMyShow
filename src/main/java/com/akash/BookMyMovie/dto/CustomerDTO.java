@@ -47,9 +47,6 @@ public class CustomerDTO {
 	public String toString() {
 		return "CustomerDTO [user_name=" + user_name + ", password=" + password + ", confirm_password="
 				+ confirm_password + ", customer_name=" + customer_name + "]";
-	}
-	
-	
-	
+	}	
 
 }

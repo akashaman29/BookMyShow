@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.akash.BookMyMovie.dto.CustomerDTO;
+import com.akash.BookMyMovie.entity.Address;
 import com.akash.BookMyMovie.entity.AvailableMovie;
 import com.akash.BookMyMovie.entity.Customer;
 import com.akash.BookMyMovie.entity.Movie;
 import com.akash.BookMyMovie.entity.TicketDetails;
+import com.akash.BookMyMovie.repository.AddressRepository;
 import com.akash.BookMyMovie.repository.Availability;
 import com.akash.BookMyMovie.repository.CustomerRepository;
 import com.akash.BookMyMovie.repository.MovieRepository;
@@ -29,6 +31,9 @@ public class MovieServiceImpl implements MovieService {
 	
 	@Autowired
 	TicketBookedRepository ticketBookedRepository;
+	
+	@Autowired
+	AddressRepository addressRepository;
 	
 	@Override
 	public String registerUser(CustomerDTO customerDTO) {
@@ -98,6 +103,15 @@ public class MovieServiceImpl implements MovieService {
 			e.printStackTrace();
 		}
 		return "Something went wrong";
+	}
+
+	public String addingNewAddress(String user_name, Address address) {
+        Customer customer = new Customer();
+        customer.setCustomer_name(user_name);
+        customer = customerRepository.getByUser_name(user_name);
+        address.setCustomer(customer);
+        addressRepository.save(address);
+		return "User "+user_name+" with city "+address.getCity_name()+ "has been saved successfully";
 	}
 
 }
